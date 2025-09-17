@@ -8,9 +8,9 @@ import { motion } from 'framer-motion';
 
 const IntroCard = ({ title, children, delay }: { title: string, children: React.ReactNode, delay: number }) => (
   <motion.div
-    initial={{ opacity: 0, y: 20, rotateX: -10, rotateY: 10 }}
-    animate={{ opacity: 1, y: 0, rotateX: 0, rotateY: 0 }}
-    transition={{ duration: 0.5, delay }}
+    initial={{ opacity: 0, y: 20 }}
+    animate={{ opacity: 1, y: 0 }}
+    transition={{ duration: 0.5, delay: delay, ease: 'easeOut' }}
     className="liquid-glass liquid-glass-interactive rounded-xl p-6"
     style={{ transformStyle: 'preserve-3d' }}
   >
