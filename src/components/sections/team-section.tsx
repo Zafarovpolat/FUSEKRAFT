@@ -88,7 +88,6 @@ export function TeamSection() {
           </h2>
         </div>
         <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 max-w-5xl mx-auto">
-          <div className="hidden md:block absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-1/2 h-px bg-gradient-to-r from-transparent via-primary to-transparent" />
           {team.map(member => (
             <TeamMemberCard key={member.name} {...member} />
           ))}
