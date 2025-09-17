@@ -47,7 +47,7 @@ export default function RootLayout({
       </head>
       <body
         className={cn(
-          'font-body antialiased',
+          'font-body antialiased animated-background',
           fontBody.variable,
           fontCode.variable
         )}
