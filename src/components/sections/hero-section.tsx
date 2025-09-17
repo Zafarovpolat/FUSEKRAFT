@@ -11,8 +11,7 @@ const IntroCard = ({ title, children, delay }: { title: string, children: React.
     initial={{ opacity: 0, y: 20 }}
     animate={{ opacity: 1, y: 0 }}
     transition={{ duration: 0.5, delay: delay, ease: 'easeOut' }}
-    className="liquid-glass liquid-glass-interactive rounded-xl p-6"
-    style={{ transformStyle: 'preserve-3d' }}
+    className="rounded-xl p-6 border"
   >
     <h3 className="font-bold text-primary text-lg mb-2 flex items-center gap-2">
       <Info className="w-5 h-5" />
@@ -32,7 +31,7 @@ export function HeroSection() {
   };
 
   return (
-    <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center text-white pt-20">
+    <section className="relative min-h-screen flex items-center justify-center overflow-hidden text-center pt-20">
       {heroBg && (
         <Image
           src={heroBg.imageUrl}
@@ -50,8 +49,7 @@ export function HeroSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.1 }}
-          className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter uppercase text-glitch"
-          data-text="FuseKraft: Ignite Your Sound"
+          className="text-5xl sm:text-7xl lg:text-8xl font-black tracking-tighter uppercase"
         >
           FuseKraft: Ignite Your Sound
         </motion.h1>
@@ -71,13 +69,13 @@ export function HeroSection() {
           <Button
             size="lg"
             onClick={scrollToTeam}
-            className="pulse-glow-primary font-bold text-lg"
+            className="font-bold text-lg"
           >
             Meet the Fuse
           </Button>
         </motion.div>
 
-        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto" style={{ perspective: '1000px' }}>
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
            <IntroCard title="Introduction" delay={0.7}>
             Welcome to FuseKraft, where sound gets a soul and beats get a backbone. We are a duo of producers, Matthew "SXR3NE" Edward and Polat "VXNTUS" Zafarov, united by a passion for the raw, unfiltered energy of phonk music. Our mission is to forge unforgettable audio experiences, blending gritty textures with hypnotic melodies to create tracks that resonate deep in the digital underground.
           </IntroCard>

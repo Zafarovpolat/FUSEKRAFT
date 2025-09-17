@@ -49,10 +49,7 @@ export function Footer() {
           &copy; {new Date().getFullYear()} FuseKraft Studios. All rights reserved.
         </p>
         <p className="text-xs text-foreground/40 mt-2">
-          Powered by{' '}
-          <span className="text-glitch" data-text="FuseKraft">
-            FuseKraft
-          </span>
+          Powered by FuseKraft
         </p>
       </div>
 
@@ -60,9 +57,9 @@ export function Footer() {
         <button
           onClick={scrollToTop}
           aria-label="Back to top"
-          className="fixed bottom-8 right-8 z-50 h-12 w-12 rounded-full liquid-glass-interactive liquid-glass flex items-center justify-center pulse-glow-primary"
+          className="fixed bottom-8 right-8 z-50 h-12 w-12 rounded-full flex items-center justify-center bg-primary text-primary-foreground"
         >
-          <ArrowUp className="h-6 w-6 text-primary" />
+          <ArrowUp className="h-6 w-6" />
         </button>
       )}
     </footer>

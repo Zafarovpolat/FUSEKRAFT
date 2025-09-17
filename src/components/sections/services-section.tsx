@@ -3,8 +3,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Check } from 'lucide-react';
 
 const ServiceCard = ({ title, description, price, revisions, genres, notes }: { title: string, description: string, price: number, revisions: number, genres: string[], notes: string }) => (
-  <Card className="liquid-glass liquid-glass-interactive flex flex-col h-full overflow-hidden relative">
-    <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-transparent via-primary to-transparent animated-gradient" />
+  <Card className="flex flex-col h-full overflow-hidden relative">
     <CardHeader>
       <CardTitle className="text-2xl font-bold text-primary">{title}</CardTitle>
       <CardDescription>{description}</CardDescription>
@@ -53,7 +52,7 @@ export function ServicesSection() {
     <section id="services" className="py-20 sm:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-glitch" data-text="Our Services">
+          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl">
             Our Services
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">

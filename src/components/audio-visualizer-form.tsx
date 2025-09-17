@@ -20,7 +20,7 @@ const initialState: VisualizerFormState = {
 function SubmitButton() {
   const { pending } = useFormStatus();
   return (
-    <Button type="submit" disabled={pending} className="w-full font-bold">
+    <Button type="submit" disabled={pending} className="w-full">
       {pending ? 'Generating...' : 'Generate Visualization'}
     </Button>
   );
@@ -41,7 +41,7 @@ export function AudioVisualizerForm() {
   }, [state, toast]);
 
   return (
-    <Card className="liquid-glass w-full max-w-2xl mx-auto">
+    <Card className="w-full max-w-2xl mx-auto">
       <form action={formAction}>
         <CardHeader>
           <CardTitle>Generate Audio Visualization</CardTitle>
@@ -67,7 +67,7 @@ export function AudioVisualizerForm() {
               <AlertTitle>Generation Complete!</AlertTitle>
               <AlertDescription className="mt-2">
                 <p>Here is your generated audio visualization:</p>
-                <div className="mt-4 rounded-lg overflow-hidden border-2 border-primary pulse-glow-primary">
+                <div className="mt-4 rounded-lg overflow-hidden border-2 border-primary">
                   <Image
                     src={state.visualization.visualization}
                     alt="Generated Audio Visualization"

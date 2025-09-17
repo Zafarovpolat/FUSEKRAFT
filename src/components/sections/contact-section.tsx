@@ -5,7 +5,7 @@ export function ContactSection() {
     <section id="contact" className="py-20 sm:py-32">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-glitch" data-text="You ready? Let's get to it!">
+          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl">
             You ready? Let's get to it!
           </h2>
           <p className="mt-4 max-w-2xl mx-auto text-lg text-foreground/80">
@@ -13,7 +13,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto liquid-glass rounded-2xl p-6 md:p-10">
+        <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 border">
           <ContactForm />
         </div>
       </div>

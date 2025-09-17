@@ -37,34 +37,7 @@ const CustomCursor = () => {
     return null;
   }
 
-  return (
-    <>
-      <div
-        className={cn(
-          "fixed pointer-events-none z-[9999] rounded-full mix-blend-difference transition-transform duration-300 ease-out",
-          isPointer ? "scale-[2.5] bg-primary" : "scale-100 bg-accent"
-        )}
-        style={{
-          left: position.x,
-          top: position.y,
-          width: isPointer ? 12 : 8,
-          height: isPointer ? 12 : 8,
-          transform: 'translate(-50%, -50%)',
-        }}
-      />
-      <div
-        className={cn(
-          "fixed pointer-events-none z-[9999] rounded-full border-2 mix-blend-difference transition-[width,height,border,transform] duration-300 ease-out",
-          isPointer ? "h-10 w-10 border-primary" : "h-8 w-8 border-accent"
-        )}
-        style={{
-          left: position.x,
-          top: position.y,
-          transform: `translate(-50%, -50%)`,
-        }}
-      />
-    </>
-  );
+  return null;
 };
 
 export default CustomCursor;

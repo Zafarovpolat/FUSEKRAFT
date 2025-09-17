@@ -10,10 +10,10 @@ const TeamMemberCard = ({ name, alias, bio, stats, socials, imageId }: { name: s
   const imageData = PlaceHolderImages.find(img => img.id === imageId);
 
   return (
-    <Card className="liquid-glass liquid-glass-interactive flex flex-col items-center text-center overflow-hidden">
+    <Card className="flex flex-col items-center text-center overflow-hidden">
       <CardHeader className="items-center">
         {imageData && (
-          <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-2 border-primary pulse-glow-primary">
+          <div className="relative w-40 h-40 mb-4 rounded-full overflow-hidden border-2 border-primary">
             <Image
               src={imageData.imageUrl}
               alt={`Profile of ${name}`}
@@ -38,7 +38,7 @@ const TeamMemberCard = ({ name, alias, bio, stats, socials, imageId }: { name: s
         <div className="flex justify-center space-x-4">
           {socials.map(social => (
             <Link key={social.name} href={social.href} target="_blank" rel="noopener noreferrer" aria-label={social.name} className="group">
-              <social.icon className="h-7 w-7 text-foreground/70 transition-all duration-300 group-hover:text-primary group-hover:scale-110 group-hover:drop-shadow-[0_0_8px_hsl(var(--primary))]"/>
+              <social.icon className="h-7 w-7 text-foreground/70 transition-all duration-300 group-hover:text-primary group-hover:scale-110"/>
             </Link>
           ))}
         </div>
@@ -83,7 +83,7 @@ export function TeamSection() {
     <section id="about" className="py-20 sm:py-32">
        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl text-glitch" data-text="Meet Our Team">
+          <h2 className="text-4xl font-black tracking-tighter sm:text-5xl md:text-6xl">
             Meet Our Team
           </h2>
         </div>
