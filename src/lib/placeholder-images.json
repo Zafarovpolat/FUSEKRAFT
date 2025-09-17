@@ -1,3 +1,22 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-background",
+      "description": "Abstract phonk-inspired visuals of waveforms distorting into liquid glass orbs.",
+      "imageUrl": "https://picsum.photos/seed/fusekraft-hero/1920/1080",
+      "imageHint": "abstract dark"
+    },
+    {
+      "id": "matthew-edward",
+      "description": "Profile picture for Matthew Edward / SXR3NE",
+      "imageUrl": "https://picsum.photos/seed/sxr3ne/500/500",
+      "imageHint": "male producer"
+    },
+    {
+      "id": "zafarov-polat",
+      "description": "Profile picture for Zafarov Polat / VXNTUS",
+      "imageUrl": "https://picsum.photos/seed/vxntus/500/500",
+      "imageHint": "male producer"
+    }
+  ]
 }
