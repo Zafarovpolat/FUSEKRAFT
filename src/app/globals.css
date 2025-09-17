@@ -131,15 +131,17 @@
   }
 
   .liquid-glass {
-    @apply border border-primary/20 bg-white/5 backdrop-blur-lg;
-    -webkit-backdrop-filter: blur(12px);
+    @apply border border-primary/20 bg-card/10 backdrop-blur-xl;
+    -webkit-backdrop-filter: blur(16px);
   }
 
   .liquid-glass-interactive {
     @apply transition-all duration-300;
+    transform-style: preserve-3d;
   }
   .liquid-glass-interactive:hover {
-    @apply border-primary/50 shadow-primary/20 shadow-2xl scale-[1.03];
+    @apply border-primary/70 shadow-primary/30 shadow-2xl scale-105;
+    transform: perspective(1000px) rotateX(4deg) rotateY(-8deg) translateZ(30px);
   }
 
   @keyframes pulse-glow {
