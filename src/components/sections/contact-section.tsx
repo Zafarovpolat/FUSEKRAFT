@@ -13,7 +13,7 @@ export function ContactSection() {
           </p>
         </div>
 
-        <div className="max-w-4xl mx-auto rounded-2xl p-6 md:p-10 border">
+        <div className="max-w-4xl mx-auto rounded-2xl border">
           <ContactForm />
         </div>
       </div>

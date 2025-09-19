@@ -41,9 +41,45 @@ export async function submitContactForm(
     };
   }
 
-  // Here you would typically send an email or save to a database.
-  // For this demo, we'll just log the data.
-  console.log('New Contact Form Submission:', validatedFields.data);
+  const data = validatedFields.data;
+
+  // Send to Discord
+  const webhookUrl = process.env.DISCORD_WEBHOOK_URL;
+  if (webhookUrl) {
+    try {
+      const embed = {
+        title: 'New Contact Form Submission',
+        color: 0x00ff00,
+        fields: [
+          { name: 'Legal Name', value: data.legalName, inline: true },
+          { name: 'Artist Name', value: data.artistName, inline: true },
+          { name: 'Age', value: data.age.toString(), inline: true },
+          { name: 'Nationality', value: data.nationality, inline: true },
+          { name: 'Email', value: data.email, inline: false },
+          { name: 'Spotify Profile', value: data.spotifyProfile || 'N/A', inline: false },
+          { name: 'Selected Service', value: data.selectedService, inline: true },
+          { name: 'SoundCloud Link', value: data.soundCloudLink || 'N/A', inline: false },
+          { name: 'Assistance Details', value: data.assistanceDetails, inline: false },
+          { name: 'Song Reference', value: data.songReference || 'N/A', inline: false },
+        ],
+        timestamp: new Date().toISOString(),
+      };
+
+      const response = await fetch(webhookUrl, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ embeds: [embed] }),
+      });
+
+      if (!response.ok) {
+        console.error('Failed to send to Discord:', response.statusText);
+      }
+    } catch (error) {
+      console.error('Error sending to Discord:', error);
+    }
+  } else {
+    console.warn('DISCORD_WEBHOOK_URL not set');
+  }
 
   return {
     message: "Your request has been sent! We'll be in touch soon.",
@@ -76,32 +112,32 @@ export async function generateVisualizationAction(
   prevState: VisualizerFormState,
   formData: FormData
 ): Promise<VisualizerFormState> {
-    const validatedFields = visualizerFormSchema.safeParse(Object.fromEntries(formData.entries()));
+  const validatedFields = visualizerFormSchema.safeParse(Object.fromEntries(formData.entries()));
 
-    if (!validatedFields.success) {
-        return {
-          message: 'Please correct the errors below.',
-          success: false,
-          errors: validatedFields.error.flatten().fieldErrors,
-        };
-    }
+  if (!validatedFields.success) {
+    return {
+      message: 'Please correct the errors below.',
+      success: false,
+      errors: validatedFields.error.flatten().fieldErrors,
+    };
+  }
 
-    try {
-        const result = await generateAudioVisualizations({
-            spotifyProfileLink: validatedFields.data.spotifyProfileLink,
-            soundCloudProfileLink: validatedFields.data.soundCloudProfileLink,
-        });
+  try {
+    const result = await generateAudioVisualizations({
+      spotifyProfileLink: validatedFields.data.spotifyProfileLink,
+      soundCloudProfileLink: validatedFields.data.soundCloudProfileLink,
+    });
 
-        return {
-            message: 'Visualization generated successfully!',
-            success: true,
-            visualization: result,
-        };
-    } catch (error) {
-        console.error("Error generating visualization:", error);
-        return {
-            message: 'Failed to generate visualization. Please try again.',
-            success: false,
-        };
-    }
+    return {
+      message: 'Visualization generated successfully!',
+      success: true,
+      visualization: result,
+    };
+  } catch (error) {
+    console.error("Error generating visualization:", error);
+    return {
+      message: 'Failed to generate visualization. Please try again.',
+      success: false,
+    };
+  }
 }
